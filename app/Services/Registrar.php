@@ -81,15 +81,15 @@ class Registrar implements RegistrarContract {
             'degree'=>$data['degree'],
             'dept_chief'=>$data['Chief']]);
         if($x=='Student')
-            Student::create(['student_id'=>$u->id,
+            Student::create(['stud_id'=>$u->id,
                 'spec1_id'=>$data['Specializare1'],
-                'spec2_id'=>$data['Specializare2'],
+
                 'spec1_year'=>$data['Year1'],
-                'spec2_year'=>$data['Year2'],
+
                 'group1'=>$data['Group1'],
-                'group2'=>$data['Group2'],
+
                 'curriculum1_id'=>$data['Curriculum1'],
-                'curriculum2_id'=>$data['Curriculum2']
+
             ]);
         return $u;
 	}

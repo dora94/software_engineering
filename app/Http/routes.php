@@ -16,7 +16,9 @@ Route::get('/','PagesController@index');
 Route::get('/student','PagesController@student');
 Route::get('/teacher','PagesController@teacher');
 Route::get('/adminstaff','PagesController@adminstaff');
-Route::get('/grades','PagesController@grades');
+Route::get('/student/grades','PagesController@grades');
+Route::get('/adminstaff/students','PagesController@staffstudents');
+
 Route::get('/teacher/addoptional','PagesController@addoptional');
 
 //Route::post('/teacher/addoptional',);

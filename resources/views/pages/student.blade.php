@@ -6,7 +6,7 @@
         <div id="nav">
                         <ul class="nav nav-pills nav-stacked nav-info">
 
-                            <li role="presentation" ><a href="{{ url('/student') }}">Grades</a></li>
+                            <li role="presentation" ><a href="{{ url('/student/grades') }}">Grades</a></li>
                             <li role="presentation" ><a href="{{ url('/student') }}">Contract</a></li>
                             <li role="presentation" ><a href="{{ url('/student') }}">Optionals</a></li>
                         </ul>

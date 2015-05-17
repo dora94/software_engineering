@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Grade;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -32,6 +33,12 @@ class PagesController extends Controller {
     }
     public function grades()
     {
-        return view('pages.grades');
+        $grades = Grade::where('stud_id', '=', \Auth::user()['id']);
+        return view('pages.grades', ['grades' => $grades]);
+    }
+
+    public function addoptional()
+    {
+        return view('pages.addoptional');
     }
 }

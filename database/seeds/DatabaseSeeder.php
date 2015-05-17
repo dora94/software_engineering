@@ -10,11 +10,29 @@ class DatabaseSeeder extends Seeder {
 	 *
 	 * @return void
 	 */
-	public function run()
-	{
-		Model::unguard();
+    public function run()
+    {
+        $this->call('UserTableSeeder');
 
-		// $this->call('UserTableSeeder');
-	}
+        $this->command->info('User table seeded!');
+    }
+
+}
+
+class UserTableSeeder extends Seeder {
+
+    public function run()
+    {
+        //DB::table('users')->delete();
+
+        \App\User::create([
+            'user' => 'heie1553',
+            'password' => bcrypt('1234567'),
+            'email'=>'heie1553@scs.ubbcluj.ro',
+            'firstname'=>'dora',
+            'lastname'=>'husaru',
+            'accounttype'=>'Student'
+        ]);
+    }
 
 }

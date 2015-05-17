@@ -17,6 +17,9 @@ Route::get('/student','PagesController@student');
 Route::get('/teacher','PagesController@teacher');
 Route::get('/adminstaff','PagesController@adminstaff');
 Route::get('/grades','PagesController@grades');
+Route::get('/teacher/addoptional','PagesController@addoptional');
+
+//Route::post('/teacher/addoptional',);
 
 Route::controllers([
     'auth' => 'Auth\AuthController',

@@ -18,6 +18,7 @@
                                 </ul>
                             </div>
                         @endif
+
                         @if(count($user)>0)
                             <h1 align="center">Hello, {{$user['firstname']}} {{$user['lastname']}} !</h1>
                             <h1 align="center">Informations:</h1>

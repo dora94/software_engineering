@@ -1,33 +1,113 @@
 @extends('pages.student')
 
 @section('content2')
+    <body>
+    <style>
+        #mygrades {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            width: 90%;
+            border-collapse: collapse;
+        }
 
-                    <div id="mydata" align="center">
+        #mygrades td, #mygrades th {
+            font-size: 1em;
+            border: 1px solid #000000;
+            padding: 3px 7px 2px 7px;
+        }
 
-                        <table id="mygrades"  border="1" cellpadding="2">
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td><b>Semester</b></td>
-                                <td><b>Discipline id</b></td>
-                                <td><b>Discipline</b></td>
-                                <td><b>Grade</b></td>
-                                <td><b>Credits</b></td>
-                            </tr>
-                        </table>
+        #mygrades th {
+            font-size: 1.1em;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            background-color: #282828  ;
+            color: lightgray;
+        }
 
+        #mygrades2 {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            width: 90%;
+            border-collapse: collapse;
+        }
+
+        #mygrades2 td, #mygrades th {
+            font-size: 1em;
+            border: 1px solid #000000;
+            padding: 3px 7px 2px 7px;
+        }
+
+        #mygrades2 th {
+            font-size: 1.1em;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            background-color: #282828  ;
+            color: lightgray;
+        }
+
+    </style>
+    <div class="container-fluid" align="center">
+        <div class="row" >
+            <div class="col-md-8 col-md-offset-2" >
+                <div class="panel panel-info" >
+                    <div class="panel-heading">Students list</div>
+                    <div class="panel-body" >
+                            <table id="mygrades">
+                                <tr>
+                                    <th colspan="4">Specialization 1</th>
+                                </tr>
+                                <tr>
+                                    <th>Discipline id</th>
+                                    <th>Discipline Name</th>
+                                    <th>Grade</th>
+                                    <th>Semester</th>
+                                </tr>
+
+                                @foreach($grades as $val)
+                                <tr>
+                                    <td>{{$val->id}}</td>
+                                    <td>{{$val->name}}</td>
+                                    <td>{{$val->grade}}</td>
+                                    <td>{{$val->semester}}</td>
+
+                                </tr>
+                                @endforeach
+                            </table>
+
+
+
+                            <h1>   </h1>
+                            <h1>   </h1>
+                            <h1>   </h1>
+                            <h1>   </h1>
+                     @if(count($grades2))
+
+                            <table id="mygrades2">
+                                <tr>
+                                    <th colspan="4">Specialization 2</th>
+                                </tr>
+                                <tr>
+                                    <th>Discipline id</th>
+                                    <th>Discipline Name</th>
+                                    <th>Grade</th>
+                                    <th>Semester</th>
+                                </tr>
+
+                                @foreach($grades2 as $val2)
+                                    <tr>
+                                        <td>{{$val2->id}}</td>
+                                        <td>{{$val2->name}}</td>
+                                        <td>{{$val2->grade}}</td>
+                                        <td>{{$val2->semester}}</td>
+
+                                    </tr>
+                                @endforeach
+                            </table>
+                     @endif
                     </div>
-
-                    <style>
-                        #mydata {
-                            border-radius: 15px;
-                            line-height:30px;
-                            background-color:lightblue;
-                            height:200px;
-                            width:400px;
-                            margin-left: auto ;
-                            margin-right: auto ;
-                            padding:5px;
-                        }
-                    </style>
-
-    @stop
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+@stop

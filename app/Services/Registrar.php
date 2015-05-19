@@ -16,14 +16,40 @@ class Registrar implements RegistrarContract {
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
 	public function validator(array $data)
-	{
+	{if($data['type']=='Teacher')
 		return Validator::make($data, [
 			'user' => 'required|max:255|unique:users',
 			'password' => 'required|confirmed|min:6',
             'email'=>'required|max:50|unique:users',
             'firstname'=>'required|max:20',
-            'lastname'=>'required|max:20'
+            'lastname'=>'required|max:20',
+            'Department1'=>'required',
+            'Degree'=>'required',
+            'Chief'=>'required'
 		]);
+        //to add if spec2 also want to be added
+        if($data['type']=='Student')
+        {
+            return Validator::make($data, [
+                'user' => 'required|max:255|unique:users',
+                'password' => 'required|confirmed|min:6',
+                'email'=>'required|max:50|unique:users',
+                'firstname'=>'required|max:20',
+                'lastname'=>'required|max:20',
+                'Specializare1'=>'required',
+                'Year1'=>'required',
+                'Group1'=>'required',
+                'Curriculum1'=>'required'
+            ]);
+        }
+     return Validator::make($data, [
+         'user' => 'required|max:255|unique:users',
+         'password' => 'required|confirmed|min:6',
+         'email'=>'required|max:50|unique:users',
+         'firstname'=>'required|max:20',
+         'lastname'=>'required|max:20',
+         'Department2'=>'required'
+     ]);
 	}
 
 	/**
@@ -55,15 +81,15 @@ class Registrar implements RegistrarContract {
             'degree'=>$data['degree'],
             'dept_chief'=>$data['Chief']]);
         if($x=='Student')
-            Student::create(['student_id'=>$u->id,
+            Student::create(['stud_id'=>$u->id,
                 'spec1_id'=>$data['Specializare1'],
-                'spec2_id'=>$data['Specializare2'],
+
                 'spec1_year'=>$data['Year1'],
-                'spec2_year'=>$data['Year2'],
+
                 'group1'=>$data['Group1'],
-                'group2'=>$data['Group2'],
+
                 'curriculum1_id'=>$data['Curriculum1'],
-                'curriculum2_id'=>$data['Curriculum2']
+
             ]);
         return $u;
 	}

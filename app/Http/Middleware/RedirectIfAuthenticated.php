@@ -3,6 +3,7 @@
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 
 class RedirectIfAuthenticated {
 
@@ -33,9 +34,16 @@ class RedirectIfAuthenticated {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if ($this->auth->check())
+
+		if (\Auth::check())
 		{
-			return new RedirectResponse(url('/home'));
+            $tip=DB::table('users')->where('id', '=', \Auth::id())->pluck('accounttype');
+            //so this one doesn't work
+            if($tip=='Student')
+                return new RedirectResponse(url('/student/grades'));
+            if($tip=='Staff')
+                return new RedirectResponse(url('/adminstaff/students'));
+        return new RedirectResponse(url('/home'));
 		}
 
 		return $next($request);

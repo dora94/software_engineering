@@ -7,8 +7,8 @@
         <ul class="nav nav-pills nav-stacked nav-info">
 
             <li role="presentation" ><a href="{{ url('/adminstaff') }}">Statistics</a></li>
-            <li role="presentation" ><a href="{{ url('/adminstaff') }}">Students</a></li>
-            <li role="presentation" ><a href="{{ url('/adminstaff') }}">Register</a></li>
+            <li role="presentation" ><a href="{{ url('/adminstaff/students') }}">Students</a></li>
+            <li role="presentation" ><a href="{{ url('/auth/register') }}">Register</a></li>
         </ul>
 
     </div>

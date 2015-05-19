@@ -10,7 +10,7 @@
                         <div class="panel-heading">Students list</div>
                         <div class="panel-body" >
                             <!--to modify action -->
-                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/teacher/addoptional') }}">
+                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/adminstaff/students') }}">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                 <div class="form-group">

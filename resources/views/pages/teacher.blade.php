@@ -6,10 +6,10 @@
     <div id="nav">
         <ul class="nav nav-pills nav-stacked nav-info">
 
-            <li role="presentation" ><a href="{{ url('/teacher') }}">Courses</a></li>
-            <li role="presentation" ><a href="{{ url('/teacher') }}">Students</a></li>
+            <li role="presentation" ><a href="{{ url('/teacher/courses') }}">Courses</a></li>
+            <li role="presentation" ><a href="{{ url('/teacher/students') }}">Students</a></li>
             <li role="presentation" ><a href="{{ url('/teacher') }}">Grades</a></li>
-            <li role="presentation" ><a href="{{ url('/teacher') }}">Optionals</a></li>
+            <li role="presentation" ><a href="{{ url('/teacher/addoptional') }}">Optionals</a></li>
         </ul>
 
     </div>

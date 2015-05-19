@@ -16,7 +16,7 @@ class SpecDisciplines extends Model {
      *
      * @var array
      */
-    protected $fillable = ['spec_id','disc_id','semester','teacher_id','credits'];
+    protected $fillable = ['spec_id','disc_id','semester','teacher_id','credits','mandatory'];
 
 
 

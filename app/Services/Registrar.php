@@ -24,7 +24,7 @@ class Registrar implements RegistrarContract {
             'firstname'=>'required|max:20',
             'lastname'=>'required|max:20',
             'Department1'=>'required',
-            'Degree'=>'required',
+            'degree'=>'required',
             'Chief'=>'required'
 		]);
         //to add if spec2 also want to be added

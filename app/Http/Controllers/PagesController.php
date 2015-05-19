@@ -89,20 +89,31 @@ class PagesController extends Controller {
 
     public function teacherCourses()
     {
-     if(\Auth::user()['accounttype']=='Teacher')
-        $courses=DB::table('specializeddisciplines')
-        ->join('disciplines','specializeddisciplines.disc_id','=','disciplines.id')
-        ->join('specializations','specializeddisciplines.spec_id','=','specializations.id')
-        ->select('specializeddisciplines.disc_id','specializeddisciplines.spec_id','specializeddisciplines.semester',
-        'specializeddisciplines.mandatory','disciplines.name','specializations.name as specname')
-        ->where('specializeddisciplines.teacher_id', '=', \Auth::id())
-        ->get();
-        return view('pages.teacher.courses')->with('courses',$courses);
+     if(\Auth::user()['accounttype']=='Teacher') {
+         $courses = DB::table('specializeddisciplines')
+             ->join('disciplines', 'specializeddisciplines.disc_id', '=', 'disciplines.id')
+             ->join('specializations', 'specializeddisciplines.spec_id', '=', 'specializations.id')
+             ->select('specializeddisciplines.disc_id', 'specializeddisciplines.spec_id', 'specializeddisciplines.semester',
+                 'specializeddisciplines.mandatory', 'disciplines.name', 'specializations.name as specname')
+             ->where('specializeddisciplines.teacher_id', '=', \Auth::id())
+             ->get();
+         return view('pages.teacher.courses')->with('courses', $courses);
+     }
      return view('\home');
     }
 
+
+
     public function teacherStudents()
-    {if(\Auth::user()['accounttype']=='Teacher')
+    {if(\Auth::user()['accounttype']=='Teacher') {
+        $names = DB::table('specializeddisciplines')
+            ->join('specializeddisciplines', 'students.spec1_id', '=', 'specializeddisciplines.spec1_id')
+            ->join('students', 'users.user_id', '=', 'students.stud_id')
+            ->join('specializeddisciplines', 'disciplines.disc_id', '=', 'specializeddisciplines.disc_id')
+            ->select('user.fname', 'user.lname', 'students.group1', 'disciplines.name')
+            ->where('specializeddisciplines.teacher_id', '=', \Auth::id())
+            ->get();
+    }
         return view('pages.teacher.students');
     return view('\home');
     }

@@ -1971,8 +1971,8 @@ trait AuthenticatesAndRegistersUsers
         if ($validator->fails()) {
             $this->throwValidationException($request, $validator);
         }
-        $this->auth->login($this->registrar->create($request->all()));
-        return redirect($this->redirectPath());
+        $this->registrar->create($request->all());
+        return redirect("/home");
     }
     public function getLogin()
     {

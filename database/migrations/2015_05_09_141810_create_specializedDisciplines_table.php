@@ -21,7 +21,7 @@ class CreateSpecializedDisciplinesTable extends Migration {
             $table->foreign('disc_id')->references('id')->on('disciplines');
 
             $table->integer('semester');
-            $table->boolean('mandatory');
+            $table->tinyInteger('mandatory');
             $table->integer('credits');
 
             $table->integer('teacher_id')->unsigned();

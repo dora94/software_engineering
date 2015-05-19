@@ -11,17 +11,22 @@
 |
 */
 
-Route::get('/home', 'PagesController@home');
+Route::get('/home', 'PagesController@index');
 Route::get('/','PagesController@index');
 Route::get('/student','PagesController@student');
 Route::get('/teacher','PagesController@teacher');
 Route::get('/adminstaff','PagesController@adminstaff');
 Route::get('/student/grades','PagesController@grades');
 Route::get('/adminstaff/students','PagesController@staffstudents');
-
+Route::get('/teacher/courses','PagesController@teacherCourses');
+Route::get('/teacher/students','PagesController@teacherStudents');
+Route::get('/adminstaff/discipline','PagesController@addDiscipline');
 Route::get('/teacher/addoptional','PagesController@addoptional');
 
-//Route::post('/teacher/addoptional',);
+Route::post('/teacher/addoptional', "TeacherController@addoptional");
+
+Route::post('adminstaff/students','AdminStaffController@studentlist');
+
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
